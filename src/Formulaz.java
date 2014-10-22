@@ -17,7 +17,7 @@ public class Formulaz {
 		JFrame zgloszenie = new JFrame("Formulaz zgloszenia");
 		
 		zgloszenie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		zgloszenie.setSize(700,1000);	
+		zgloszenie.setSize(700,800);	
 		zgloszenie.setLocation(300, 100);
 		zgloszenie.setLayout(null);		// zajmuje calosc	
 		zgloszenie.setResizable(false); // mozliwosc zmiany rozmiaru okna
@@ -28,7 +28,7 @@ public class Formulaz {
 		
 		
 		JButton wystaw = new JButton("WYSTAW ZGLOSZENIE");
-		wystaw.setBounds(250, 920, 200, 40);
+		wystaw.setBounds(250, 700, 200, 40);
 		wystaw.setBorder(null);
 		zgloszenie.add(wystaw);
 		
@@ -55,40 +55,20 @@ public class Formulaz {
 		model.setHorizontalAlignment(JTextField.RIGHT);
 		zgloszenie.add(model);
 		
-		/*JTextField nazwa = new JTextField();
-		nazwa.setBounds(10, 10, 500, 40);
-		Font f = new Font("New Times Roman", Font.BOLD, 24);
-		nazwa.setFont(f);
-		nazwa.setHorizontalAlignment(JTextField.RIGHT);
-		zgloszenie.add(nazwa);
+		JLabel etykieta_sn = new JLabel("Numer Fabryczny");
+		etykieta_sn.setBounds(20,230,200,40);
+		zgloszenie.add(etykieta_sn);
 		
-		JTextField nazwa = new JTextField();
-		nazwa.setBounds(10, 10, 500, 40);
-		Font f = new Font("New Times Roman", Font.BOLD, 24);
-		nazwa.setFont(f);
-		nazwa.setHorizontalAlignment(JTextField.RIGHT);
-		zgloszenie.add(nazwa);
+		JTextField sn = new JTextField();
+		sn.setBounds(230, 230, 400, 40);
+		sn.setFont(f);
+		sn.setHorizontalAlignment(JTextField.RIGHT);
+		zgloszenie.add(sn);
 		
-		JTextField nazwa = new JTextField();
-		nazwa.setBounds(10, 10, 500, 40);
-		Font f = new Font("New Times Roman", Font.BOLD, 24);
-		nazwa.setFont(f);
-		nazwa.setHorizontalAlignment(JTextField.RIGHT);
-		zgloszenie.add(nazwa);
+		JLabel etykieta_lokalizacji = new JLabel("Miejsce u¿ytkowania");
+		etykieta_lokalizacji.setBounds(20,290, 650,40);
+		zgloszenie.add(etykieta_lokalizacji);
 		
-		JTextField nazwa = new JTextField();
-		nazwa.setBounds(10, 10, 500, 40);
-		Font f = new Font("New Times Roman", Font.BOLD, 24);
-		nazwa.setFont(f);
-		nazwa.setHorizontalAlignment(JTextField.RIGHT);
-		zgloszenie.add(nazwa);
-		
-		JTextField nazwa = new JTextField();
-		nazwa.setBounds(10, 10, 500, 40);
-		Font f = new Font("New Times Roman", Font.BOLD, 24);
-		nazwa.setFont(f);
-		nazwa.setHorizontalAlignment(JTextField.RIGHT);
-		zgloszenie.add(nazwa); */
 		
 		
 		
