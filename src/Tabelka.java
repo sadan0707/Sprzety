@@ -26,6 +26,9 @@ public class Tabelka {
 
 }
 
+//cos tam
+
+
 class RamkaTabelkiSprzetu extends JFrame {
 
 	
