@@ -71,7 +71,7 @@ public class Formulaz {
 		
 		
 		
-		//wersja aktualna
+		//wersja aktualna!!
 		
 		
 		
