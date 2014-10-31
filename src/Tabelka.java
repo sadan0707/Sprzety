@@ -26,7 +26,7 @@ public class Tabelka {
 
 }
 
-//wersja aktualna
+//wersja aktualna najbardziej!!!
 
 
 class RamkaTabelkiSprzetu extends JFrame {
