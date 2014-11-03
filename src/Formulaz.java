@@ -132,36 +132,14 @@ public class Formulaz {
 		zgloszenie.add(etykieta_opisu);
 		
 		
-		//JPanel opis = new JPanel();
-		//opis.setLayout(null);
-		//opis.setBounds(160,440,650,120);
-		JTextArea opis_usterki = new JTextArea();
-		opis_usterki.setBounds(160,440,650,120);
-		JScrollPane przewijacz_opisu = new JScrollPane(opis_usterki);
 		
-		//przewijacz_opisu.add(opis_usterki);
-		//opis_usterki.setLocation(650,120);
-		//opis_usterki.setSize(640,110);
+		JTextArea opis_usterki = new JTextArea();
 		opis_usterki.setLineWrap(true);
 		
+		JScrollPane przewijacz_opisu = new JScrollPane(opis_usterki);
+		przewijacz_opisu.setBounds(160,440,650,140);
 		
-		//JScrollBar przewijacz_opisu = new JScrollBar();
-		
-		przewijacz_opisu.setBounds(160,440,650,120);
-		//przewijacz_opisu.setLocation(1,1);
-		//przewijacz_opisu.setMinimumSize(new Dimension(100,100));
-		//przewijacz_opisu.setPreferredSize(new Dimension(100,100));
-		//przewijacz_opisu.setMaximumSize(new Dimension(100,100));
-		//opis_usterki.add(przewijacz_opisu);
-		
-		//opis.add(opis_usterki);
-		//opis.add(przewijacz_opisu);
-		//zgloszenie.add(opis);
 		zgloszenie.add(przewijacz_opisu, BorderLayout.EAST);
-		//zgloszenie.add(opis_usterki);
-		
-		
-		//wersja aktualna najbardziej!!
 		
 		
 		
