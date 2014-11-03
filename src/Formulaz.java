@@ -3,16 +3,24 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Frame;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 
 public class Formulaz {
@@ -28,10 +36,13 @@ public class Formulaz {
 		zgloszenie.setLayout(null);		// zajmuje calosc	
 		zgloszenie.setResizable(false); // mozliwosc zmiany rozmiaru okna
 		zgloszenie.setVisible(true);   //za pomoca tej metody mozemy zauwa¿yc okno
+		//zgloszenie.setBackground(UIManager.getColor());
 		
 		//JPanel panel = new JPanel();
 		//zgloszenie.add(panel);
 		
+		//Date data = new Date();
+		//int dzien = data.getTime(Calendar.DATE);
 		
 		JButton wystaw = new JButton("WYSTAW ZGLOSZENIE");
 		wystaw.setBounds(350, 600, 200, 40);
@@ -108,24 +119,68 @@ public class Formulaz {
 		etykieta_serwisu.setBounds(20,260,200,40);
 		zgloszenie.add(etykieta_serwisu);
 		
-		JTextField serwis = new JTextField();
+		JComboBox<String> serwis = new JComboBox();
 		serwis.setBounds(160,260,650,40);
 		serwis.setFont(f);
-		serwis.setHorizontalAlignment(JTextField.RIGHT);
+		//serwis.setHorizontalAlignment(JComboBox.RIGHT);
+		serwis.setEditable(true);
+		serwis.addItem("SIEMENS HEALTHCARE POLSKA SP. Z O.O.");
+		serwis.addItem("GE HEALTHCARE POLSKA SP. Z O.O.");
+		serwis.addItem("KOSMED S.A.");
+		serwis.addItem("PROMED S.A.");
+		serwis.addItem("DUTCHMED POLSKA SP. Z O.O.");
+		serwis.addItem("DRAGER POLSKA SP. Z.O.O");
+		serwis.addItem("T.M.S. SP. Z O.O.");
+		serwis.addItem("PHILIPS HEALTHCARE POLSKA SP. Z O.O.");
+		serwis.addItem("EKOMARK SP. Z O.O.");
+		serwis.addItem("EKOMED S.A");
+		serwis.addItem("ENDOELEKTRONIK SP. Z O.O.");
+		serwis.addItem("MIRO S.A.");
+		serwis.addItem("SYNEKTIK SP. Z O.O.");
+		serwis.addItem("VARIMED SP. Z O.O.");
+		serwis.addItem("HLM SERWIS SP. Z O.O.");
+		serwis.addItem("MVS SP. Z O.O.");
+		
+		
 		zgloszenie.add(serwis);
 		
 		JLabel rodzaj_zgloszenia = new JLabel("Rodzaj Zgloszenia");
 		rodzaj_zgloszenia.setBounds(20,310,200,40);
 		zgloszenie.add(rodzaj_zgloszenia);
 		
-		JCheckBox naprawa = new JCheckBox("Naprawa");
-		naprawa.setLocation(160, 310);
-		naprawa.setSelected(true);
+		ButtonGroup przelacznik1 = new ButtonGroup();
+				
+		JRadioButton naprawa = new JRadioButton("Naprawa");
+		naprawa.setBounds(200, 320, 160, 20);
+		naprawa.setSelected(false);
+		przelacznik1.add(naprawa);
 		zgloszenie.add(naprawa);
+		
+		JRadioButton przeglad = new JRadioButton("Przeglad");
+		przeglad.setBounds(400, 320, 160, 20);
+		przeglad.setSelected(false);
+		przelacznik1.add(przeglad);
+		zgloszenie.add(przeglad);
+		
+		
 		
 		JLabel rodzaj_dokumentu = new JLabel ("Rodzaj Dokumentu");
 		rodzaj_dokumentu.setBounds(20,360,200,40);
 		zgloszenie.add(rodzaj_dokumentu);
+		
+		ButtonGroup przelacznik2 = new ButtonGroup();
+		
+		JRadioButton zapytanie = new JRadioButton("Zapytanie o ofertê");
+		zapytanie.setBounds(200, 370, 160, 20);
+		zapytanie.setSelected(false);
+		przelacznik2.add(zapytanie);
+		zgloszenie.add(zapytanie);
+		
+		JRadioButton zlecenie = new JRadioButton("Zlecenie");
+		zlecenie.setBounds(400, 370, 160, 20);
+		zlecenie.setSelected(false);
+		przelacznik2.add(zlecenie);
+		zgloszenie.add(zlecenie);
 		
 		JLabel etykieta_opisu = new JLabel("Opis usterki");
 		etykieta_opisu.setBounds(20,430,200,40);
@@ -135,6 +190,7 @@ public class Formulaz {
 		
 		JTextArea opis_usterki = new JTextArea();
 		opis_usterki.setLineWrap(true);
+		//opis_usterki.setEditable(false);
 		
 		JScrollPane przewijacz_opisu = new JScrollPane(opis_usterki);
 		przewijacz_opisu.setBounds(160,440,650,140);
