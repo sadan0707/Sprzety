@@ -78,10 +78,34 @@ public class Formulaz {
 		etykieta_nazwy.setBounds(20,60,120,40);
 		zgloszenie.add(etykieta_nazwy);
 				
-		JTextField nazwa = new JTextField();
+		JComboBox<String> nazwa = new JComboBox();
 		nazwa.setBounds(160, 60, 650, 40);
 		nazwa.setFont(f);
-		nazwa.setHorizontalAlignment(JTextField.RIGHT);
+		//nazwa.setHorizontalAlignment(JComboBox.RIGHT);
+		nazwa.setEditable(true);
+		nazwa.addItem("APARAT DO ZNIECZULANIA");
+		nazwa.addItem("APARAT ULTRASONOGRAFICZNY (USG)");
+		nazwa.addItem("APARAT DO KR¥¯ENIA POZAUSTROJOWEGO");
+		nazwa.addItem("APARAT RTG - ANGIOGRAF");
+		nazwa.addItem("APARAT RTG - KARDIOANGRIOGRAF");
+		nazwa.addItem("APARAT RTG - PRZYLÓ¯KOWY");
+		nazwa.addItem("APARAT RTG - STACJONARNY");
+		nazwa.addItem("ENDOSKOP - BRONCHOSKOP");
+		nazwa.addItem("ENDOSKOP - GASTROSKOP");
+		nazwa.addItem("ENDOSKOP - ENTEROSKOP");
+		nazwa.addItem("ENDOSKOP - KOLONOSKOP");
+		nazwa.addItem("iNKUBATOR DLA NOWORODKÓW");
+		nazwa.addItem("POMPA DO KONTRALPULSACJI WEWN¥TRZ-AORTALNEJ");
+		nazwa.addItem("RESPIRATOR");
+		nazwa.addItem("STRZYKAWKA AUTOMATYCZNA (AUTOMATYCZNY WSTRZYKIWAC KONTRASTU");
+		nazwa.addItem("REZONANS MAGNETYCZNY (MRi)");
+		nazwa.addItem("TOMOGRAF KOMPUTEROWY (CT)");
+		nazwa.addItem("TOR WIZYJNY");
+		/*nazwa.addItem()
+		nazwa.addItem()
+		nazwa.addItem()
+		nazwa.addItem()
+		nazwa.addItem()*/
 		zgloszenie.add(nazwa);
 		
 		JLabel etykieta_modelu = new JLabel("Model");
@@ -112,6 +136,7 @@ public class Formulaz {
 		JTextField lokalizacja = new JTextField();
 		lokalizacja.setBounds(160, 210, 650, 40);
 		lokalizacja.setFont(f);
+		
 		lokalizacja.setHorizontalAlignment(JTextField.RIGHT);
 		zgloszenie.add(lokalizacja);
 		
@@ -140,8 +165,6 @@ public class Formulaz {
 		serwis.addItem("VARIMED SP. Z O.O.");
 		serwis.addItem("HLM SERWIS SP. Z O.O.");
 		serwis.addItem("MVS SP. Z O.O.");
-		
-		
 		zgloszenie.add(serwis);
 		
 		JLabel rodzaj_zgloszenia = new JLabel("Rodzaj Zgloszenia");
@@ -162,6 +185,11 @@ public class Formulaz {
 		przelacznik1.add(przeglad);
 		zgloszenie.add(przeglad);
 		
+		JRadioButton testy = new JRadioButton("Testy Specjalustyczne");
+		testy.setBounds(600, 320, 160, 20);
+		testy.setSelected(false);
+		przelacznik1.add(testy);
+		zgloszenie.add(testy);
 		
 		
 		JLabel rodzaj_dokumentu = new JLabel ("Rodzaj Dokumentu");
