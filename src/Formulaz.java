@@ -230,7 +230,7 @@ public class Formulaz {
 		
 		JTextArea opis_usterki = new JTextArea();
 		opis_usterki.setLineWrap(true);
-		//opis_usterki.setEditable(false);
+		
 		
 		JScrollPane przewijacz_opisu = new JScrollPane(opis_usterki);
 		przewijacz_opisu.setBounds(160,440,650,140);
