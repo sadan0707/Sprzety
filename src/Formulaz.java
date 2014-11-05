@@ -283,7 +283,7 @@ public class Formulaz {
 		
 	}
 	
-
+// wersja z pdf najbardziej aktualna
 	public static void main(String[] args) {
 		
 		new Formulaz();
