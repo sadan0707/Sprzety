@@ -3,9 +3,13 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -21,12 +25,23 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.event.AncestorListener;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;;
 
 public class Formulaz {
 
-	@SuppressWarnings("unused")
-	public static void main(String[] args) {
+
+	public Formulaz() {
+		ramka();
+	}
+	
+	public void ramka() {
+
 		
 		JFrame zgloszenie = new JFrame("Formulaz zgloszenia");
 		
@@ -36,20 +51,16 @@ public class Formulaz {
 		zgloszenie.setLayout(null);		// zajmuje calosc	
 		zgloszenie.setResizable(false); // mozliwosc zmiany rozmiaru okna
 		zgloszenie.setVisible(true);   //za pomoca tej metody mozemy zauwa¿yc okno
-		//zgloszenie.setBackground(UIManager.getColor());
 		
-		//JPanel panel = new JPanel();
-		//zgloszenie.add(panel);
-		
-		//Date data = new Date();
-		//int dzien = data.getTime(Calendar.DATE);
 		
 		JButton wystaw = new JButton("WYSTAW ZGLOSZENIE");
 		wystaw.setBounds(350, 600, 200, 40);
 		wystaw.setBorder(null);
+		
 		zgloszenie.add(wystaw);
 		
 		
+				
 		Font f = new Font("New Times Roman", Font.BOLD, 20);
 		
 		
@@ -78,7 +89,7 @@ public class Formulaz {
 		etykieta_nazwy.setBounds(20,60,120,40);
 		zgloszenie.add(etykieta_nazwy);
 				
-		JComboBox<String> nazwa = new JComboBox();
+		final JComboBox<String> nazwa = new JComboBox();
 		nazwa.setBounds(160, 60, 650, 40);
 		nazwa.setFont(f);
 		//nazwa.setHorizontalAlignment(JComboBox.RIGHT);
@@ -113,17 +124,18 @@ public class Formulaz {
 		zgloszenie.add(etykieta_modelu);
 		
 		
-		JTextField model = new JTextField();
+		final JTextField model = new JTextField();
 		model.setBounds(160, 110, 650, 40);
 		model.setFont(f);
 		model.setHorizontalAlignment(JTextField.RIGHT);
 		zgloszenie.add(model);
+			
 		
 		JLabel etykieta_sn = new JLabel("Numer Fabryczny");
 		etykieta_sn.setBounds(20,160,200,40);
 		zgloszenie.add(etykieta_sn);
 		
-		JTextField sn = new JTextField();
+		final JTextField sn = new JTextField();
 		sn.setBounds(160, 160, 400, 40);
 		sn.setFont(f);
 		sn.setHorizontalAlignment(JTextField.RIGHT);
@@ -144,7 +156,7 @@ public class Formulaz {
 		etykieta_serwisu.setBounds(20,260,200,40);
 		zgloszenie.add(etykieta_serwisu);
 		
-		JComboBox<String> serwis = new JComboBox();
+		final JComboBox<String> serwis = new JComboBox();
 		serwis.setBounds(160,260,650,40);
 		serwis.setFont(f);
 		//serwis.setHorizontalAlignment(JComboBox.RIGHT);
@@ -225,10 +237,105 @@ public class Formulaz {
 		
 		zgloszenie.add(przewijacz_opisu, BorderLayout.EAST);
 		
-		
+			wystaw.addActionListener(new ActionListener(){
+			
+			public void actionPerformed(ActionEvent event) {
+				
+				 
+				
+				Document nowypdf = new Document();
+				
+				try {
+					PdfWriter.getInstance(nowypdf, new FileOutputStream("DATA"+"_"+nazwa.getSelectedItem()+"_"+model.getText()+"_"+sn.getText()+".pdf"));
+					
+					nowypdf.open();
+					
+					Paragraph paragraf1 = new Paragraph();
+					Paragraph paragraf2 = new Paragraph();
+					Paragraph paragraf3 = new Paragraph();
+					Paragraph paragraf4 = new Paragraph();
+					Paragraph paragraf5 = new Paragraph();
+					Paragraph paragraf6 = new Paragraph();
+					Paragraph paragraf7 = new Paragraph();
+					
+					
+					paragraf1.add("Wystawiono zlecenie na:");
+					paragraf2.add((String) nazwa.getSelectedItem());
+					paragraf3.add(model.getText());
+					paragraf4.add(sn.getText());
+					paragraf5.add((String) serwis.getSelectedItem());
+					paragraf6.add("produkcji DATEX-OHMEDA");
+					
+					nowypdf.add(paragraf1);
+					nowypdf.add(paragraf2);
+					nowypdf.add(paragraf3);
+					nowypdf.add(paragraf4);
+					nowypdf.add(paragraf5);
+					nowypdf.add(paragraf6);
+					
+					nowypdf.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+						}
+			
+			}
+		});
 		
 	}
+	
+
+	public static void main(String[] args) {
+		
+		new Formulaz();
+		
+		
+	
 }
+
+	/*public class WystawDokument implements ActionListener {
+		
+		
+		
+
+		@Override
+		public void actionPerformed(ActionEvent evt) {
+
+		
+		
+			String forma;
+			forma = Formulaz.model.toString();
+			
+
+			Document nowypdf = new Document();
+			
+			try {
+				PdfWriter.getInstance(nowypdf, new FileOutputStream("dokument.pdf"));
+				
+				nowypdf.open();
+				
+				Paragraph paragraf1 = new Paragraph();
+				Paragraph paragraf2 = new Paragraph();
+				Paragraph paragraf3 = new Paragraph();
+				
+				paragraf1.add("Aparat do znieczulenia");
+				paragraf2.add("S/5AVANCE");
+				paragraf3.add("produkcji DATEX-OHMEDA");
+				
+				nowypdf.add(paragraf1);
+				nowypdf.add(paragraf2);
+				nowypdf.add(paragraf3);
+				
+				nowypdf.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+					}
+		}
+
+		} */
+
+	
+}
+
 
 
 
